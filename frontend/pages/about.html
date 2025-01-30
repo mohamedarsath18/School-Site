@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | School Name</title>
+    <link rel="stylesheet" href="../assets/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+    <div id="navbar"></div> 
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <h1 data-aos="fade-down">About Our School</h1>
+        <p data-aos="fade-up">Nurturing young minds, shaping future leaders.</p>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="mission" data-aos="fade-right">
+            <h2>Our Mission</h2>
+            <p>To provide a nurturing environment where students develop knowledge, skills, and character to become responsible global citizens.</p>
+        </div>
+        <div class="vision" data-aos="fade-left">
+            <h2>Our Vision</h2>
+            <p>To be a center of academic excellence that fosters innovation, creativity, and a lifelong passion for learning.</p>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section class="achievements">
+        <h2 data-aos="zoom-in">Our Achievements</h2>
+        <div class="achievement-list">
+            <div class="achievement" data-aos="flip-left">
+                <h3>🏆 Best School Award 2023</h3>
+                <p>Recognized for academic excellence and holistic development.</p>
+            </div>
+            <div class="achievement" data-aos="flip-right">
+                <h3>🥇 95%+ Board Exam Success</h3>
+                <p>Our students consistently achieve top scores.</p>
+            </div>
+            <div class="achievement" data-aos="flip-left">
+                <h3>⚽ National-Level Sports Champions</h3>
+                <p>Our sports teams have won multiple national tournaments.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet Our Team -->
+    <section class="team">
+        <h2 data-aos="fade-up">Meet Our Leadership</h2>
+        <div class="team-members">
+            <div class="member" data-aos="fade-up">
+                <img src="../assets/images/principal.jpg" alt="Principal">
+                <h3>Dr. A. Sharma</h3>
+                <p>Principal</p>
+            </div>
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+                <img src="../assets/images/vice-principal.jpg" alt="Vice Principal">
+                <h3>Mrs. R. Iyer</h3>
+                <p>Vice Principal</p>
+            </div>
+            <div class="member" data-aos="fade-up" data-aos-delay="400">
+                <img src="../assets/images/head-teacher.jpg" alt="Head Teacher">
+                <h3>Mr. K. Gupta</h3>
+                <p>Head of Academics</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <h2 data-aos="fade-up">What Our Students Say</h2>
+        <div class="testimonial-slider" data-aos="fade-left">
+            <p>"This school has transformed my learning experience!" - <strong>Aryan, Class 10</strong></p>
+            <p>"Amazing teachers and a fantastic learning environment." - <strong>Sneha, Class 12</strong></p>
+            <p>"The best place to grow academically and personally." - <strong>Rahul, Alumni</strong></p>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("../components/navbar.html").then(res => res.text()).then(data => document.getElementById("navbar").innerHTML = data);
+        fetch("../components/footer.html").then(res => res.text()).then(data => document.getElementById("footer").innerHTML = data);
+
+        AOS.init();
+    </script>
+</body>
+</html>
