@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | School Name</title>
+    <link rel="stylesheet" href="../assets/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+    <div id="navbar"></div> 
+
+    <section class="gallery-section">
+        <h1 data-aos="fade-down">📸 Photo Gallery</h1>
+
+        <div class="photo-gallery">
+            <a href="https://source.unsplash.com/600x400/?school,classroom" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?school,classroom" alt="Classroom Scene">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?students,learning" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?students,learning" alt="Students Learning">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?teachers,education" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?teachers,education" alt="Teacher Teaching">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?school,sports" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?school,sports" alt="Sports Event">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?kids,playground" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?kids,playground" alt="Playground">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?books,library" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?books,library" alt="Library">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?graduation,students" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?graduation,students" alt="Graduation Day">
+            </a>
+            <a href="https://source.unsplash.com/600x400/?children,education" data-lightbox="gallery">
+                <img src="https://source.unsplash.com/300x200/?children,education" alt="Young Kids Learning">
+            </a>
+        </div>
+
+        <h1 data-aos="fade-down">🎥 Video Gallery</h1>
+        <div class="video-gallery">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/1E7g4Um7Ebo" title="School Tour" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/Xj3IqGwvAso" title="Annual Day Performance" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/kjP-PFsN2L4" title="Sports Day Highlights" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+
+    <div id="footer"></div>
+
+    <script>
+        fetch("../components/navbar.html").then(res => res.text()).then(data => document.getElementById("navbar").innerHTML = data);
+        fetch("../components/footer.html").then(res => res.text()).then(data => document.getElementById("footer").innerHTML = data);
+
+        AOS.init();
+    </script>
+</body>
+</html>

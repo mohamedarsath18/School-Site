@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | Secure Access</title>
+    <link rel="stylesheet" href="../assets/styles/admin-secure.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="secure-box-lgn">
+        <div class="lgn-shadow-x">
+            <h2>Admin Login</h2>
+            <form id="adminLoginForm">
+                <div class="input-block-secure">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-block-secure">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="lgn-btn-shadow">Login</button>
+                <p id="errorMessage"></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const loginForm = document.getElementById("adminLoginForm");
+
+            loginForm.addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+
+                try {
+                    const response = await fetch("http://localhost:5000/api/admin/login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ username, password }),
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        localStorage.setItem("adminToken", `Bearer ${data.token}`);
+                        window.location.href = "dashboard.html";
+                    } else {
+                        document.getElementById("errorMessage").textContent = data.message;
+                    }
+                } catch (error) {
+                    document.getElementById("errorMessage").textContent = "Something went wrong. Please try again.";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

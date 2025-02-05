@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Marks</title>
+    <link rel="stylesheet" href="../assets/styles/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="manage-events.html">Manage Events</a></li>
+                <li><a href="manage-students.html">Manage Students</a></li>
+                <li><a href="manage-marks.html">Manage Marks</a></li>
+                <li><a href="manage-homework.html">Manage Homework</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="content">
+        <h1>Manage Marks</h1>
+        <button id="add-marks-btn">Add Marks</button>
+
+        <!-- Marks Form (Initially hidden) -->
+        <div id="marks-form-container" style="display: none;">
+            <h2 id="form-title">Add Marks</h2>
+            <form id="marks-form">
+                <input type="hidden" id="mark-id">
+
+                <label for="student-id">Student:</label>
+                <select id="student-id" required></select>
+
+                <label for="class-name">Class:</label>
+                <select id="student-standard" required>
+                    <option value="First">First</option>
+                    <option value="Second">Second</option>
+                    <option value="Third">Third</option>
+                    <option value="Fourth">Fourth</option>
+                    <option value="Fifth">Fifth</option>
+                    <option value="Sixth">Sixth</option>
+                    <option value="Seventh">Seventh</option>
+                </select>
+
+                <label for="exam-type">Exam Type:</label>
+                <input type="text" id="exam-type" required>
+
+                <label for="math-marks">Math:</label>
+                <input type="number" id="math-marks" required>
+
+                <label for="science-marks">Science:</label>
+                <input type="number" id="science-marks" required>
+
+                <label for="english-marks">English:</label>
+                <input type="number" id="english-marks" required>
+
+                <button type="submit">Save</button>
+                <button type="button" id="cancel-form">Cancel</button>
+            </form>
+        </div>
+
+        <table id="marks-table">
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Class</th>
+                    <th>Exam Type</th>
+                    <th>Math</th>
+                    <th>Science</th>
+                    <th>English</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Marks rows will be dynamically loaded here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="../assets/scripts/admin.js"></script>
+</body>
+</html>
