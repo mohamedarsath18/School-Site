@@ -40,7 +40,7 @@ app.get('/api/admin-dashboard', (req, res) => {
 });
 
 // Serve static files from the 'frontend' folder
-app.use(express.static(path.join(__dirname, "../frontend")));
+app.use(express.static(path.join(__dirname, '../frontend/pages')));
 
 // Fallback to index.html for SPA routing (if needed)
 app.get("*", (req, res) => {
