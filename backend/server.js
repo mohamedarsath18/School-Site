@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 const connectDB = require("./config/db");
 
 dotenv.config(); // Load environment variables
@@ -36,6 +37,14 @@ app.use("/api/admin", adminRoutes);      // Public access for admin routes
 // ✅ Admin Dashboard without authentication
 app.get('/api/admin-dashboard', (req, res) => {
     res.json({ message: 'Welcome to the admin dashboard' });
+});
+
+// Serve static files from the 'frontend' folder
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+// Fallback to index.html for SPA routing (if needed)
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/pages/index.html"));
 });
 
 // Start Server
