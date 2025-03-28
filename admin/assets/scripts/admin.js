@@ -302,43 +302,47 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Homework Management
-document.addEventListener('DOMContentLoaded', function () {
-    const addHomeworkBtn = document.getElementById('add-homework');
-    const closeHomeworkFormBtn = document.getElementById('close-homework-form');
-    const homeworkTable = document.getElementById('homework-table').getElementsByTagName('tbody')[0];
-    const homeworkForm = document.getElementById('homework-form');
-    const submitHomeworkBtn = document.getElementById('submit-homework');
-    const standardInput = document.getElementById("homework-standard");
-    const subjectInput = document.getElementById("homework-subject");
-    const titleInput = document.getElementById('homework-title');
-    const dueDateInput = document.getElementById('homework-dueDate');
-    const descriptionInput = document.getElementById('homework-description');
-    const formTitle = document.getElementById('form-title');
+document.addEventListener("DOMContentLoaded", function () {
+    // ========================= Homework Management =========================
+    const addHomeworkBtn = document.getElementById("add-homework");
+    const closeHomeworkFormBtn = document.getElementById("close-homework-form");
+    const homeworkTable = document.getElementById("homework-table").getElementsByTagName("tbody")[0];
+    const homeworkForm = document.getElementById("homework-form");
+    const submitHomeworkBtn = document.getElementById("submit-homework");
+    const homeworkTitleInput = document.getElementById("homework-title");
+    const homeworkStandardInput = document.getElementById("homework-standard");
+    const homeworkDueDateInput = document.getElementById("homework-dueDate");
+    const homeworkDescriptionInput = document.getElementById("homework-description");
+    const homeworkFormTitle = document.getElementById("form-title");
 
     let editingHomeworkId = null;
 
-    addHomeworkBtn.addEventListener('click', function () {
-        homeworkForm.style.display = 'block';
-        formTitle.textContent = 'New Homework';
-        submitHomeworkBtn.textContent = 'Submit';
+    // Show the homework form
+    addHomeworkBtn.addEventListener("click", function () {
+        homeworkForm.style.display = "block";
+        homeworkFormTitle.textContent = "New Homework";
+        submitHomeworkBtn.textContent = "Submit";
         editingHomeworkId = null;
-        clearForm();
+        clearHomeworkForm();
     });
 
-    closeHomeworkFormBtn.addEventListener('click', function () {
-        homeworkForm.style.display = 'none';
+    // Close the homework form
+    closeHomeworkFormBtn.addEventListener("click", function () {
+        homeworkForm.style.display = "none";
     });
 
+    // Load all homework
     function loadHomework() {
-        fetch('http://localhost:5000/api/homework')
+        fetch("http://localhost:5000/api/homework")
             .then(response => response.json())
             .then(homeworks => {
-                homeworkTable.innerHTML = '';
+                homeworkTable.innerHTML = ""; // Clear the table
                 homeworks.forEach(homework => {
                     const row = homeworkTable.insertRow();
                     row.innerHTML = `
                         <td>${homework.title}</td>
-                        <td>${homework.dueDate}</td>
+                        <td>${homework.class || "N/A"}</td> <!-- Ensure class is displayed -->
+                        <td>${homework.dueDate ? new Date(homework.dueDate).toLocaleDateString() : "No due date"}</td>
                         <td>${homework.description}</td>
                         <td>
                             <button class="edit-btn" data-id="${homework._id}">Edit</button>
@@ -346,125 +350,101 @@ document.addEventListener('DOMContentLoaded', function () {
                         </td>
                     `;
                 });
-
-                document.querySelectorAll('.delete-btn').forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        deleteHomework(this.dataset.id);
+    
+                // Add event listeners for edit and delete buttons
+                document.querySelectorAll(".edit-btn").forEach(button => {
+                    button.addEventListener("click", function () {
+                        const homeworkId = this.getAttribute("data-id");
+                        editHomework(homeworkId);
                     });
                 });
-
-                document.querySelectorAll('.edit-btn').forEach(btn => {
-                    btn.addEventListener('click', function () {
-                        editHomework(this.dataset.id);
+    
+                document.querySelectorAll(".delete-btn").forEach(button => {
+                    button.addEventListener("click", function () {
+                        const homeworkId = this.getAttribute("data-id");
+                        deleteHomework(homeworkId);
                     });
                 });
             })
-            .catch(error => console.error('Error fetching homework:', error));
+            .catch(error => console.error("Error loading homework:", error));
     }
 
+    // Add or update homework
     submitHomeworkBtn.addEventListener("click", function () {
-        const standard = standardInput.value;
-        const subject = subjectInput.value.trim();
-        const dueDate = dueDateInput.value;
-        const description = descriptionInput.value.trim();
+        const title = homeworkTitleInput.value.trim();
+        const className = homeworkStandardInput.value;
+        const dueDate = homeworkDueDateInput.value;
+        const description = homeworkDescriptionInput.value.trim();
 
-        if (!standard || !subject || !dueDate || !description) {
-            alert("All fields are required");
+        if (!title || !className || !description) {
+            alert("Please fill in all required fields.");
             return;
         }
 
-        const homeworkData = {
-            title: titleInput.value.trim(),
-            standard: standardInput.value,
-            subject: subjectInput.value.trim(),
-            description: descriptionInput.value.trim(),
-            dueDate: dueDateInput.value
-        };
+        const homeworkData = { title, class: className, dueDate, description };
+        const method = editingHomeworkId ? "PUT" : "POST";
+        const url = editingHomeworkId
+            ? `http://localhost:5000/api/homework/${editingHomeworkId}`
+            : "http://localhost:5000/api/homework";
 
-        if (editingHomeworkId) {
-            updateHomework(editingHomeworkId, homeworkData);
-        } else {
-            addHomework(homeworkData);
-        }
+        fetch(url, {
+            method,
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(homeworkData),
+        })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message || "Homework saved successfully!");
+                homeworkForm.style.display = "none";
+                loadHomework();
+                clearHomeworkForm();
+            })
+            .catch(error => console.error("Error saving homework:", error));
     });
 
-    function addHomework(homeworkData) {
-        fetch('http://localhost:5000/api/homework', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(homeworkData),
-        })
-        .then(response => response.json())
-        .then(() => {
-            loadHomework();
-            homeworkForm.style.display = 'none';
-        })
-        .catch(error => console.error('Error adding homework:', error));
-    }
-
-    function deleteHomework(homeworkId) {
-        fetch(`http://localhost:5000/api/homework/${homeworkId}`, {
-            method: 'DELETE',
-        })
-        .then(() => loadHomework())
-        .catch(error => console.error('Error deleting homework:', error));
-    }
-
+    // Edit homework
     function editHomework(homeworkId) {
-        console.log(`Fetching homework with ID: ${homeworkId}`); // Log the homeworkId for debugging
-    
         fetch(`http://localhost:5000/api/homework/${homeworkId}`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.text(); // Read the response as text
+            .then(response => response.json())
+            .then(homework => {
+                homeworkTitleInput.value = homework.title;
+                homeworkStandardInput.value = homework.class;
+                homeworkDueDateInput.value = homework.dueDate ? new Date(homework.dueDate).toISOString().split("T")[0] : "";
+                homeworkDescriptionInput.value = homework.description;
+
+                editingHomeworkId = homeworkId;
+                homeworkForm.style.display = "block";
+                homeworkFormTitle.textContent = "Edit Homework";
+                submitHomeworkBtn.textContent = "Update";
             })
-            .then(responseText => {
-                try {
-                    const homework = JSON.parse(responseText); // Try to parse the response as JSON
-                    titleInput.value = homework.title;
-                    dueDateInput.value = homework.dueDate;
-                    descriptionInput.value = homework.description;
-                    standardInput.value = homework.standard;
-                    subjectInput.value = homework.subject;
-    
-                    homeworkForm.style.display = 'block';
-                    formTitle.textContent = 'Edit Homework';
-                    submitHomeworkBtn.textContent = 'Update';
-    
-                    editingHomeworkId = homeworkId;
-                } catch (error) {
-                    console.error('Error parsing JSON:', error, responseText); // Log the response text for debugging
-                }
-            })
-            .catch(error => console.error('Error fetching homework:', error));
+            .catch(error => console.error("Error fetching homework:", error));
     }
 
-
-    function updateHomework(homeworkId, homeworkData) {
-        fetch(`http://localhost:5000/api/homework/${homeworkId}`, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(homeworkData),
-        })
-        .then(response => response.json())
-        .then(() => {
-            loadHomework();
-            homeworkForm.style.display = 'none';
-            editingHomeworkId = null;
-            submitHomeworkBtn.textContent = 'Submit';
-        })
-        .catch(error => console.error('Error updating homework:', error));
+    // Delete homework
+    function deleteHomework(homeworkId) {
+        if (confirm("Are you sure you want to delete this homework?")) {
+            fetch(`http://localhost:5000/api/homework/${homeworkId}`, { method: "DELETE" })
+                .then(() => {
+                    alert("Homework deleted successfully!");
+                    loadHomework();
+                })
+                .catch(error => console.error("Error deleting homework:", error));
+        }
     }
 
-    function clearForm() {
-        titleInput.value = '';
-        dueDateInput.value = '';
-        descriptionInput.value = '';
+    // Clear homework form
+    function clearHomeworkForm() {
+        homeworkTitleInput.value = "";
+        homeworkStandardInput.value = "";
+        homeworkDueDateInput.value = "";
+        homeworkDescriptionInput.value = "";
     }
 
+    // Initial load
     loadHomework();
+
+    // ========================= Other Management Sections =========================
+    // Add similar sections for events, marks, and students as needed.
 });
 
 // Students Management

@@ -28,8 +28,8 @@
             <h2 id="form-title">New Homework</h2>
             <label for="homework-title">Title:</label>
             <input type="text" id="homework-title" required />
-            
-            <label for="homework-standard">Standard:</label>
+
+            <label for="homework-standard">Class:</label>
             <select id="homework-standard" required>
                 <option value="First">First</option>
                 <option value="Second">Second</option>
@@ -40,11 +40,8 @@
                 <option value="Seventh">Seventh</option>
             </select>
 
-            <label for="homework-subject">Subject:</label>
-            <input type="text" id="homework-subject" required />
-
             <label for="homework-dueDate">Due Date:</label>
-            <input type="date" id="homework-dueDate" required />
+            <input type="date" id="homework-dueDate" />
 
             <label for="homework-description">Description:</label>
             <textarea id="homework-description" required></textarea>
@@ -57,6 +54,7 @@
             <thead>
                 <tr>
                     <th>Title</th>
+                    <th>Class</th>
                     <th>Due Date</th>
                     <th>Description</th>
                     <th>Actions</th>
