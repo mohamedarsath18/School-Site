@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>School Policies | School Name</title>
+  <!-- Main CSS Reset (if needed) -->
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/policies.css">
+  <!-- New Scoped CSS for Policies Page -->
+  <link rel="stylesheet" href="../assets/styles/school-policies-modern.css">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <!-- Hero Section with Background Image -->
+  <section class="spm-hero" style="background-image: url('../assets/images/6.jpeg');">
+    <div class="spm-hero-overlay"></div>
+    <div class="spm-hero-content" data-aos="fade-down">
+      <h1 class="spm-hero-title">📜 School Policies</h1>
+    </div>
+  </section>
+
+  <!-- Policies Container -->
+  <section class="spm-container">
+    <!-- Rules & Regulations Card -->
+    <div class="spm-policy-card" data-aos="fade-up" style="background-image: url('../assets/images/2.jpeg');">
+      <div class="spm-card-overlay"></div>
+      <div class="spm-card-content">
+        <h2 class="spm-card-title">📌 Rules & Regulations</h2>
+        <ul class="spm-card-list">
+          <li>🎓 Uniform is mandatory at all times.</li>
+          <li>📅 Minimum 90% attendance required.</li>
+          <li>🙌 Respect for teachers and peers is essential.</li>
+          <li>📵 Mobile phones are not allowed in class.</li>
+          <li>📚 Timely submission of homework and assignments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fee Structure Card -->
+    <div class="spm-policy-card" data-aos="fade-up" style="background-image: url('../assets/images/3.jpeg');">
+      <div class="spm-card-overlay"></div>
+      <div class="spm-card-content">
+        <h2 class="spm-card-title">💰 Fee Structure</h2>
+        <div class="spm-table-wrapper">
+          <table class="spm-policy-table">
+            <thead>
+              <tr>
+                <th>Standard</th>
+                <th>Annual Fee</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>First Standard</td>
+                <td>₹20,000</td>
+              </tr>
+              <tr>
+                <td>Second Standard</td>
+                <td>₹22,000</td>
+              </tr>
+              <tr>
+                <td>Third Standard</td>
+                <td>₹24,000</td>
+              </tr>
+              <tr>
+                <td>Fourth Standard</td>
+                <td>₹26,000</td>
+              </tr>
+              <tr>
+                <td>Fifth Standard</td>
+                <td>₹28,000</td>
+              </tr>
+              <tr>
+                <td>Sixth Standard</td>
+                <td>₹30,000</td>
+              </tr>
+              <tr>
+                <td>Seventh Standard</td>
+                <td>₹32,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code of Conduct Card -->
+    <div class="spm-policy-card" data-aos="fade-up" style="background-image: url('../assets/images/4.jpeg');">
+      <div class="spm-card-overlay"></div>
+      <div class="spm-card-content">
+        <h2 class="spm-card-title">🎯 Code of Conduct</h2>
+        <ul class="spm-card-list">
+          <li>🚸 Maintain discipline on campus.</li>
+          <li>💬 Bullying or harassment is not tolerated.</li>
+          <li>🚯 Keep the premises clean and orderly.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Attendance Policy Card -->
+    <div class="spm-policy-card" data-aos="fade-up" style="background-image: url('../assets/images/5.jpeg');">
+      <div class="spm-card-overlay"></div>
+      <div class="spm-card-content">
+        <h2 class="spm-card-title">⏳ Attendance Policy</h2>
+        <ul class="spm-card-list">
+          <li>🏫 School Hours: 8:00 AM - 3:30 PM.</li>
+          <li>🛑 Late arrivals over 15 minutes need prior approval.</li>
+          <li>📜 Submit leave applications for planned absences.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Health & Safety Card -->
+    <div class="spm-policy-card" data-aos="fade-up" style="background-image: url('../assets/images/6.jpeg');">
+      <div class="spm-card-overlay"></div>
+      <div class="spm-card-content">
+        <h2 class="spm-card-title">🛡️ Health & Safety</h2>
+        <ul class="spm-card-list">
+          <li>🚑 Medical team available for emergencies.</li>
+          <li>😷 Stay home if contagious; maintain hygiene.</li>
+          <li>🏃 Regular fire drills for safety readiness.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load Navbar and Footer Components
+    fetch("../components/navbar.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("navbar").innerHTML = html);
+    fetch("../components/footer.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
+
+    AOS.init({ duration: 1200 });
+  </script>
+</body>
+</html>

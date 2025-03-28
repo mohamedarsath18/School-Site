@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | School Name</title>
+  <!-- Main CSS Reset if needed -->
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/contact.css">
+  <!-- Scoped CSS for Contact Page -->
+  <link rel="stylesheet" href="../assets/styles/contact-modern.css">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <!-- Hero Section with Background Image -->
+  <section class="ct-hero" style="background-image: url('../assets/images/7.jpeg');">
+    <div class="ct-hero-overlay"></div>
+    <div class="ct-hero-content" data-aos="fade-down">
+      <h1 class="ct-hero-title">Get in Touch</h1>
+      <p class="ct-hero-subtitle">We’d love to hear from you – reach out for any inquiries!</p>
+    </div>
+  </section>
+
+  <!-- Contact Details & Form Section -->
+  <section class="ct-main">
+    <div class="ct-info" data-aos="fade-right">
+      <h2 class="ct-section-title">Contact Details</h2>
+      <div class="ct-info-card">
+        <p><strong>Address:</strong> Sourashtra Nursery Primary School,<br>
+          Madurai Cor. Ward52, 625009,<br>
+          Madurai, Tamil Nadu</p>
+        <p><strong>Phone:</strong> +91 98765 43210</p>
+        <p><strong>Email:</strong> sourashtranursery@gmail.com</p>
+      </div>
+    </div>
+
+    <div class="ct-form-wrapper" data-aos="fade-left">
+      <h2 class="ct-section-title">Send an Inquiry</h2>
+      <form id="ct-contact-form" class="ct-form">
+        <label for="ct-name">Your Name:</label>
+        <input type="text" id="ct-name" required placeholder="Enter your name">
+        
+        <label for="ct-email">Your Email:</label>
+        <input type="email" id="ct-email" required placeholder="Enter your email">
+
+        <label for="ct-message">Your Message:</label>
+        <textarea id="ct-message" rows="5" required placeholder="Type your message here"></textarea>
+
+        <button type="submit" class="ct-btn">Send Message</button>
+      </form>
+      <p id="ct-form-response" class="ct-form-response"></p>
+    </div>
+  </section>
+
+  <!-- Map Section -->
+  <section class="ct-map" data-aos="zoom-in">
+    <h2 class="ct-section-title">Find Us Here</h2>
+    <div class="ct-map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3930.210021742829!2d78.1255769!3d9.916459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOcKwNTQnNTkuMyJOIDc4wrAwNyczMi4xIkU!5e0!3m2!1sen!2sin!4v1742450152089!5m2!1sen!2sin" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load Navbar and Footer
+    fetch("../components/navbar.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("navbar").innerHTML = html);
+    fetch("../components/footer.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
+
+    AOS.init({ duration: 1200 });
+
+    // Contact Form Submission Handling
+    document.getElementById("ct-contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const name = document.getElementById("ct-name").value.trim();
+      const email = document.getElementById("ct-email").value.trim();
+      const message = document.getElementById("ct-message").value.trim();
+
+      if (!name || !email || !message) {
+        document.getElementById("ct-form-response").innerText = "All fields are required!";
+        return;
+      }
+
+      fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message })
+      })
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById("ct-form-response").innerText = data.message;
+        document.getElementById("ct-contact-form").reset();
+      })
+      .catch(err => {
+        console.log("Error:", err);
+        document.getElementById("ct-form-response").innerText = "There was an error. Please try again.";
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+/* CSS Variables for a modern, professional look */
+:root {
+    --primary-color: #212121;
+    --accent-color: #e94560;
+    --bg-color: #ffffff;
+    --overlay-color: rgba(0, 0, 0, 0.5);
+    --text-color: #333;
+    --transition-speed: 0.4s;
+    --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Base resets */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: var(--font-family);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  
+  /* Navbar will inherit styles from main.css */
+  
+  /* Hero Section */
+  .hero {
+    position: relative;
+    width: 100%;
+    height: 90vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--overlay-color);
+  }
+  
+  .hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+  }
+  
+  .btn-primary {
+    background-color: var(--accent-color);
+    color: #fff;
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color var(--transition-speed);
+  }
+  
+  .btn-primary:hover {
+    background-color: darkred;
+  }
+  
+  /* School Info Section */
+  .school-info {
+    padding: 60px 5%;
+    text-align: center;
+  }
+  
+  .school-info h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+  }
+  
+  .info-container {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .info-box {
+    background: #f1f1f1;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    transition: transform var(--transition-speed);
+  }
+  
+  .info-box:hover {
+    transform: translateY(-5px);
+  }
+  
+  .info-box img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  
+  .info-box p {
+    font-size: 1.1rem;
+  }
+  
+  /* Highlights Section */
+  .highlights {
+    padding: 60px 5%;
+    background-color: #fafafa;
+    text-align: center;
+  }
+  
+  .highlights h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+  }
+  
+  .cards {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background: #fff;
+    border: 1px solid #ddd;
+    width: 320px;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card h3 {
+    font-size: 1.8rem;
+    margin: 20px 15px 10px;
+    color: var(--primary-color);
+  }
+  
+  .card p {
+    font-size: 1rem;
+    margin: 0 15px 20px;
+    color: var(--text-color);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.8rem;
+    }
+    .hero-content p {
+      font-size: 1rem;
+    }
+    .info-container, .cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

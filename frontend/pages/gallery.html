@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gallery | School Name</title>
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/modern-gallery.css">
+  <link rel="stylesheet" href="../assets/styles/gallery.css">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <!-- Lightbox2 -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
+</head>
+<body>
+  <div id="navbar"></div>
+
+  <section class="gallery-section">
+    <div class="section-header" data-aos="fade-up">
+      <h1>Photo Gallery</h1>
+      <hr class="divider">
+    </div>
+
+    <div class="grid-container">
+      <!-- Updated each anchor to have the image source as href -->
+      <a href="../assets/images/1.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/1.jpeg" alt="Classroom Scene">
+      </a>
+      <a href="../assets/images/2.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/2.jpeg" alt="Students Learning">
+      </a>
+      <a href="../assets/images/3.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/3.jpeg" alt="Teacher Teaching">
+      </a>
+      <a href="../assets/images/4.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/4.jpeg" alt="Sports Event">
+      </a>
+      <a href="../assets/images/5.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/5.jpeg" alt="Playground">
+      </a>
+      <a href="../assets/images/6.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/6.jpeg" alt="Library">
+      </a>
+      <a href="../assets/images/7.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/7.jpeg" alt="Graduation Day">
+      </a>
+      <a href="../assets/images/8.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/8.jpeg" alt="Young Kids Learning">
+      </a>
+      <a href="../assets/images/9.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/9.jpeg" alt="Sports Event">
+      </a>
+      <a href="../assets/images/10.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/10.jpeg" alt="Playground">
+      </a>
+      <a href="../assets/images/11.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/11.jpeg" alt="Library">
+      </a>
+      <a href="../assets/images/12.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/12.jpeg" alt="Graduation Day">
+      </a>
+      <a href="../assets/images/13.jpeg" data-lightbox="gallery" class="grid-item">
+        <img src="../assets/images/13.jpeg" alt="Young Kids Learning">
+      </a>
+    </div>
+
+    <div class="section-header" data-aos="fade-up">
+      <h1>Video Gallery</h1>
+      <hr class="divider">
+    </div>
+
+    <div class="video-container" data-aos="fade-up">
+      <iframe src="https://www.youtube.com/embed/1E7g4Um7Ebo" title="School Tour" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/Xj3IqGwvAso" title="Annual Day Performance" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/kjP-PFsN2L4" title="Sports Day Highlights" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <script>
+    // Load common components
+    fetch("../components/navbar.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("navbar").innerHTML = html);
+    fetch("../components/footer.html")
+      .then(response => response.text())
+      .then(html => document.getElementById("footer").innerHTML = html);
+
+    AOS.init({ duration: 1200 });
+  </script>
+</body>
+</html>

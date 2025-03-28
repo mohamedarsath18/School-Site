@@ -1,0 +1,177 @@
+/* Root Variables for Modern Policies Page */
+:root {
+    --spm-primary-color: #212121;
+    --spm-accent-color: #e94560;
+    --spm-bg-color: #ffffff;
+    --spm-overlay-color: rgba(0, 0, 0, 0.55);
+    --spm-text-color: #f0f0f0;
+    --spm-transition: 0.4s;
+    --spm-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Base Reset */
+  body {
+    font-family: var(--spm-font);
+    margin: 0;
+    padding: 0;
+    background-color: var(--spm-bg-color);
+    color: var(--spm-primary-color);
+    line-height: 1.6;
+  }
+  
+  /* HERO SECTION */
+  .spm-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .spm-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
+  }
+  
+  .spm-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: #fff;
+  }
+  
+  .spm-hero-title {
+    font-size: 3rem;
+    letter-spacing: 1px;
+  }
+  
+  /* POLICIES CONTAINER */
+  .spm-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px 5%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+  }
+  
+  /* POLICY CARD */
+  .spm-policy-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 380px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    transition: transform var(--spm-transition);
+  }
+  
+  .spm-policy-card:hover {
+    transform: translateY(-8px);
+  }
+  
+  .spm-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--spm-overlay-color);
+    transition: background-color var(--spm-transition);
+  }
+  
+  .spm-policy-card:hover .spm-card-overlay {
+    background-color: rgba(0, 0, 0, 0.65);
+  }
+  
+  .spm-card-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--spm-text-color);
+    text-align: center;
+  }
+  
+  .spm-card-title {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+  }
+  
+  .spm-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .spm-card-list li {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 25px;
+    color: #fff;
+  }
+  
+  .spm-card-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--spm-accent-color);
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  
+  /* TABLE STYLING */
+  .spm-table-wrapper {
+    overflow-x: auto;
+  }
+  
+  .spm-policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+  }
+  
+  .spm-policy-table th,
+  .spm-policy-table td {
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .spm-policy-table th {
+    background-color: var(--spm-accent-color);
+  }
+  
+  .spm-policy-table tr:nth-child(even) {
+    background-color: rgba(255,255,255,0.1);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .spm-hero-title {
+      font-size: 2.5rem;
+    }
+    .spm-container {
+      grid-template-columns: 1fr;
+    }
+    .spm-policy-card {
+      height: auto;
+      min-height: 320px;
+    }
+  }
+  

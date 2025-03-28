@@ -1,0 +1,314 @@
+/* Root Variables for About Page Styling */
+:root {
+    --ab-primary-color: #212121;
+    --ab-accent-color: #e94560;
+    --ab-bg-color: #ffffff;
+    --ab-overlay-color: rgba(0, 0, 0, 0.5);
+    --ab-text-color: #333;
+    --ab-transition: 0.4s;
+    --ab-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /* Base Reset for About Page */
+  body {
+    font-family: var(--ab-font);
+    background-color: var(--ab-bg-color);
+    color: var(--ab-text-color);
+    line-height: 1.6;
+  }
+  
+  /* HERO SECTION */
+  .ab-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ab-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--ab-overlay-color);
+  }
+  
+  .ab-hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    max-width: 800px;
+    padding: 0 20px;
+  }
+  
+  .ab-hero-title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  
+  .ab-hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  /* MISSION & VISION SECTION */
+  .ab-mv {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 60px 5%;
+    background-color: #fafafa;
+    gap: 20px;
+  }
+  
+  .ab-mission,
+  .ab-vision {
+    flex: 1 1 400px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  }
+  
+  .ab-mission h2,
+  .ab-vision h2 {
+    color: var(--ab-primary-color);
+    margin-bottom: 15px;
+  }
+  
+  /* ACHIEVEMENTS SECTION */
+  .ab-achievements {
+    padding: 60px 5%;
+    text-align: center;
+  }
+  
+  .ab-achievements h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--ab-primary-color);
+  }
+  
+  .ab-achievement-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .ab-achievement {
+    background: #fff;
+    padding: 20px;
+    width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform var(--ab-transition);
+  }
+  
+  .ab-achievement:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ab-achievement h3 {
+    margin-bottom: 10px;
+    color: var(--ab-accent-color);
+  }
+  
+  /* SCHOOL PROFILE SECTION */
+  .ab-profile {
+    padding: 60px 5%;
+    background-color: var(--ab-bg-color);
+    color: var(--ab-primary-color);
+  }
+  
+  .ab-profile h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+  }
+  
+  .ab-profile-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 40px;
+  }
+  
+  .ab-address,
+  .ab-facilities {
+    flex: 1 1 400px;
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 8px;
+  }
+  
+  .ab-address h3,
+  .ab-facilities h3 {
+    margin-bottom: 15px;
+    color: var(--ab-accent-color);
+  }
+  
+  .ab-facilities ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .ab-facilities li {
+    margin-bottom: 8px;
+  }
+  
+  /* ENROLLMENT STATISTICS SECTION */
+  .ab-enrollment {
+    padding: 60px 5%;
+    background-color: #fafafa;
+    text-align: center;
+  }
+  
+  .ab-enrollment h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--ab-primary-color);
+  }
+  
+  .ab-enrollment-table {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .ab-enrollment-table table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  
+  .ab-enrollment-table th,
+  .ab-enrollment-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .ab-enrollment-table th {
+    background-color: var(--ab-accent-color);
+    color: #fff;
+  }
+  
+  .ab-enrollment-table tr.ab-total td {
+    font-weight: bold;
+  }
+  
+  .ab-staff-info {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+  
+  /* TEAM SECTION */
+  .ab-team {
+    padding: 60px 5%;
+    background-color: var(--ab-bg-color);
+    text-align: center;
+  }
+  
+  .ab-team h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--ab-primary-color);
+  }
+  
+  .ab-team-members {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .ab-member {
+    background: #fff;
+    width: 280px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform var(--ab-transition);
+  }
+  
+  .ab-member:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ab-member-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+  }
+  
+  .ab-member-name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: var(--ab-primary-color);
+  }
+  
+  .ab-member-role {
+    font-size: 1.1rem;
+    color: var(--ab-text-color);
+  }
+  
+  /* TESTIMONIALS SECTION */
+  .ab-testimonials {
+    padding: 60px 5%;
+    background-color: #fff;
+    text-align: center;
+  }
+  
+  .ab-testimonials h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--ab-primary-color);
+  }
+  
+  .ab-testimonial-slider {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .ab-testimonial-slider blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: #fafafa;
+    border-left: 4px solid var(--ab-accent-color);
+  }
+  
+  .ab-testimonial-slider cite {
+    display: block;
+    margin-top: 10px;
+    font-size: 1rem;
+    color: var(--ab-text-color);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .ab-hero-title {
+      font-size: 2.5rem;
+    }
+    .ab-hero-subtitle {
+      font-size: 1rem;
+    }
+    .ab-mv {
+      flex-direction: column;
+      align-items: center;
+    }
+    .ab-profile-wrapper,
+    .ab-team-members {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  

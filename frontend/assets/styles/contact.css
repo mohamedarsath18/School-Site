@@ -1,0 +1,194 @@
+/* Root Variables for Contact Page */
+:root {
+    --ct-primary-color: #212121;
+    --ct-accent-color: #e94560;
+    --ct-bg-color: #ffffff;
+    --ct-overlay-color: rgba(0, 0, 0, 0.55);
+    --ct-font: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ct-transition: 0.4s;
+  }
+  
+  /* Base Styles */
+  body {
+    font-family: var(--ct-font);
+    background-color: var(--ct-bg-color);
+    color: var(--ct-primary-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+  }
+  
+  /* HERO SECTION */
+  .ct-hero {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ct-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.65), rgba(0,0,0,0.35));
+  }
+  
+  .ct-hero-content {
+    position: relative;
+    text-align: center;
+    color: #fff;
+    z-index: 1;
+    padding: 0 20px;
+  }
+  
+  .ct-hero-title {
+    font-size: 3rem;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  .ct-hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  /* MAIN CONTACT SECTION */
+  .ct-main {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 5%;
+  }
+  
+  /* Contact Info Card */
+  .ct-info {
+    padding: 20px;
+  }
+  
+  .ct-info .ct-section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--ct-accent-color);
+    text-align: center;
+  }
+  
+  .ct-info-card {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    transition: transform var(--ct-transition);
+  }
+  
+  .ct-info-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .ct-info-card p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+  }
+  
+  /* Contact Form */
+  .ct-form-wrapper {
+    padding: 20px;
+  }
+  
+  .ct-form-wrapper .ct-section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--ct-accent-color);
+    text-align: center;
+  }
+  
+  .ct-form {
+    background: #f9f9f9;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .ct-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .ct-form input,
+  .ct-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+  }
+  
+  .ct-form input:focus,
+  .ct-form textarea:focus {
+    outline: none;
+    border-color: var(--ct-accent-color);
+  }
+  
+  .ct-btn {
+    background-color: var(--ct-accent-color);
+    color: #fff;
+    border: none;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color var(--ct-transition);
+  }
+  
+  .ct-btn:hover {
+    background-color: darkred;
+  }
+  
+  .ct-form-response {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+  
+  /* MAP SECTION */
+  .ct-map {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 5%;
+    text-align: center;
+  }
+  
+  .ct-map .ct-section-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--ct-accent-color);
+  }
+  
+  .ct-map-container {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .ct-hero-title {
+      font-size: 2.5rem;
+    }
+    .ct-hero-subtitle {
+      font-size: 1rem;
+    }
+    .ct-main {
+      grid-template-columns: 1fr;
+    }
+  }
+  
